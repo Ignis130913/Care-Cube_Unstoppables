@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Medical ChatBot</title>
+    <style>
+        #chat-container {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat with Medical ChatBot</h1>
+    <div id="chat-container">
+        <div id="chat-history"></div>
+    </div>
+    <form id="message-form">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatHistory = document.getElementById('chat-history');
+            const messageForm = document.getElementById('message-form');
+            const userInput = document.getElementById('user-input');
+
+            messageForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const userMessage = userInput.value.trim();
+                if (userMessage === '') return;
+
+                // Display user message
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.textContent = `You: ${userMessage}`;
+                chatHistory.appendChild(userMessageDiv);
+
+                // Send message to backend
+                const response = await fetch('/get_response', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ user_input: userMessage }),
+                });
+
+                const data = await response.json();
+
+                // Display bot response
+                const botResponseDiv = document.createElement('div');
+                botResponseDiv.textContent = `Medical ChatBot: ${data.bot_response}`;
+                chatHistory.appendChild(botResponseDiv);
+
+                // Clear input field
+                userInput.value = '';
+
+                // Scroll to bottom of chat history
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            });
+        });
+    </script>
+</body>
+</html>
