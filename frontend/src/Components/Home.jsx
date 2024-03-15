@@ -65,12 +65,12 @@ const Home = () => {
                 >
                 Home
                 </button>
-              <Link to={'Therapy'}><button
+              <button
                 className={activeButton === "therapy" ? "active" : ""}
                 onClick={() => handleButtonClick("therapy")}
                 >
                 Therapy
-                </button></Link>
+                </button>
            
               <button
                 className={activeButton === "councelling" ? "active" : ""}
@@ -105,6 +105,7 @@ const Home = () => {
                 {activeButton==="councelling" &&  <RegisCouncelling/>}
                 {activeButton==="analysis" &&  <Analysis/>}
                 {activeButton==="aboutus" &&  <AboutUs/>}
+                {activeButton==="therapy" &&  <Therapy/>}
                 
               </div>
             </div>

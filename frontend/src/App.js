@@ -28,7 +28,7 @@ function App() {
         <Route exact path="/regisCouncelling" element={<RegisCouncelling />} />
         <Route exact path="/game" element={<Game />} />
         <Route exact path="/music" element={<CardProfile />} />
-        <Route exact path="/therapy" element={<Therapy />} />
+        <Route exact path="/Therapy" element={<Therapy />} />
         <Route exact path="/home/:id" element={<Home />} />
         <Route exact path="/chat" element={<Chat />} />
         <Route exact path="/summa" element={<New />} />
