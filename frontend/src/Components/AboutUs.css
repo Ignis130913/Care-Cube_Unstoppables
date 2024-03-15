@@ -1,0 +1,33 @@
+.analysis-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .analysis-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .analysis-container p,
+  .analysis-container ul {
+    color: #555;
+  }
+  
+  .analysis-container ul {
+    padding-left: 20px;
+  }
+  
+  .analysis-container li {
+    margin-bottom: 8px;
+  }
+  
+  .analysis-container p:last-child {
+    margin-bottom: 0;
+  }
+  
